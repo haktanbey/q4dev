@@ -248,27 +248,25 @@
     const playlistEl = document.getElementById('playlist');
     const soundNotice = document.getElementById('soundNotice');
 
-    // ============== PLAYLIST TANIMLA ==============
-    let playlist = [
-      {
-        title: "MONTAGEM TOMADA (SLOWED)",
-        src: "montagem.mp3"
-      },
-      {
-        title: "FUNK DE BELEZA",
-        src: "beleza.mp3"
-      },
-      {
-        title: "AVANGARD,
-        src: "avangard.mp3"
-      },
-      {
-        title: "BRODYAGA FUNK (SLOWED)",
-        src: "brodyaga.mp3"
-      }
-      // Buraya istediğin kadar şarkı ekleyebilirsin
-      // Örnek: { title: "Şarkı Adı", src: "dosyaadı.mp3" }
-    ];
+   // ============== PLAYLIST TANIMLA (BURAYI TAM DEĞİŞTİR) ==============
+let playlist = [
+  {
+    title: "Avangard",
+    src: "./avangard.mp3"
+  },
+  {
+    title: "Beleza",
+    src: "./beleza.mp3"
+  },
+  {
+    title: "Brodyaga",
+    src: "./brodyaga.mp3"
+  },
+  {
+    title: "Montagem",
+    src: "./montagem.mp3"
+  }
+];
 
     let currentTrack = 0;
     let isPlaying = false;
