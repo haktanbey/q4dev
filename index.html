@@ -17,7 +17,6 @@
       overflow: hidden;
       color: #ffffff;
       font-family: 'Share Tech Mono', monospace;
-      cursor: pointer;
     }
 
     #particles-js {
@@ -38,8 +37,6 @@
       z-index: 2;
       width: 92%;
       max-width: 700px;
-      max-height: 70vh;
-      overflow-y: auto;
       padding: 15px;
     }
 
@@ -74,48 +71,31 @@
       animation: pulse 4s infinite;
     }
 
-    .whatsapp-btn {
-      position: fixed;
-      bottom: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      background: #25D366;
-      color: white;
-      padding: 12px 24px;
-      border-radius: 50px;
-      font-size: clamp(1em, 4vw, 1.2em);
-      font-weight: bold;
-      text-decoration: none;
-      box-shadow: 0 0 25px rgba(37,213,102,0.7);
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: all 0.3s;
-      border: 2px solid #ffffff;
-      max-width: 90%;
-    }
-
-    /* ========== YENİ PLAYLIST STİLLERİ ========== */
+    /* ========== SOL TARAFA TAŞINAN MÜZİK PLAYER ========== */
     .music-player {
-      background: rgba(20, 20, 20, 0.85);
+      position: fixed;
+      left: 30px;
+      top: 180px;
+      background: rgba(15, 15, 15, 0.92);
       border: 1px solid #ffffff33;
-      border-radius: 12px;
-      padding: 15px;
-      margin: 25px auto;
-      max-width: 420px;
-      backdrop-filter: blur(10px);
+      border-radius: 14px;
+      padding: 18px 20px;
+      width: 320px;
+      z-index: 4;
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.15);
     }
 
     .now-playing {
       font-size: 1.05em;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
       color: #00ffcc;
       text-shadow: 0 0 10px #00ffcc;
+      text-align: center;
     }
 
     .playlist {
-      max-height: 220px;
+      max-height: 240px;
       overflow-y: auto;
       margin: 15px 0;
     }
@@ -130,66 +110,92 @@
     }
 
     .song-item {
-      padding: 10px 12px;
-      margin: 4px 0;
-      background: rgba(255,255,255,0.05);
+      padding: 11px 14px;
+      margin: 5px 0;
+      background: rgba(255,255,255,0.06);
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s;
-      text-align: left;
-      font-size: 0.95em;
+      font-size: 0.96em;
     }
 
     .song-item:hover, .song-item.playing {
-      background: rgba(0, 255, 200, 0.15);
+      background: rgba(0, 255, 200, 0.18);
       color: #00ffcc;
     }
 
     .controls {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-top: 10px;
+      gap: 18px;
+      margin: 15px 0;
     }
 
     .control-btn {
       background: rgba(255,255,255,0.1);
       border: 1px solid #ffffff44;
       color: white;
-      width: 45px;
-      height: 45px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.4em;
+      font-size: 1.45em;
       cursor: pointer;
       transition: all 0.3s;
     }
 
     .control-btn:hover {
-      background: rgba(255,255,255,0.25);
-      transform: scale(1.1);
+      background: rgba(0, 255, 200, 0.2);
+      transform: scale(1.08);
+    }
+
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      background: #25D366;
+      color: white;
+      padding: 12px 26px;
+      border-radius: 50px;
+      font-size: clamp(1em, 4vw, 1.2em);
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(37,213,102,0.7);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border: 2px solid #ffffff;
     }
 
     .sound-notice {
       position: fixed;
-      top: 50px;
+      top: 55px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0,0,0,0.7);
+      background: rgba(0,0,0,0.75);
       color: #fff;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 8px;
-      font-size: clamp(0.9em, 3.5vw, 1em);
       z-index: 10;
-      pointer-events: none;
-      opacity: 1;
-      transition: opacity 1s;
     }
 
     @keyframes glow { from { text-shadow: 0 0 15px #fff, 0 0 30px #fff; } to { text-shadow: 0 0 40px #fff, 0 0 70px #fff; } }
-    @keyframes pulse { 0%, 100% { opacity: 0.9; transform: scale(1); } 50% { opacity: 1; transform: scale(1.04); } }
+    @keyframes pulse { 0%, 100% { opacity: 0.9; } 50% { opacity: 1; transform: scale(1.04); } }
+
+    /* Mobilde müzik player'ı daha iyi göstermek için */
+    @media (max-width: 768px) {
+      .music-player {
+        left: 50%;
+        top: 220px;
+        transform: translateX(-50%);
+        width: 88%;
+        max-width: 340px;
+      }
+    }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
@@ -197,18 +203,29 @@
 <body>
   <div id="particles-js"></div>
 
-  <!-- Müzik Playlist -->
   <audio id="bgMusic" preload="metadata"></audio>
 
   <div class="q4-tag">Katreos</div>
   <div class="sound-notice" id="soundNotice">Tıkla ve müziği aç!</div>
 
+  <!-- SOL TARAFTA MÜZİK PLAYER -->
+  <div class="music-player">
+    <div class="now-playing" id="nowPlaying">Şarkı yükleniyor...</div>
+    
+    <div class="controls">
+      <div class="control-btn" id="prevBtn"><i class="fas fa-step-backward"></i></div>
+      <div class="control-btn" id="playPauseBtn"><i class="fas fa-play"></i></div>
+      <div class="control-btn" id="nextBtn"><i class="fas fa-step-forward"></i></div>
+    </div>
+
+    <div class="playlist" id="playlist"></div>
+  </div>
+
   <div class="center-content">
     <h1>WHO IS KATREOS</h1>
     <div class="bio">
       My name is Katreos, I'm 17 years old and I want to become a Cybersecurity professional. 
-      I've been involved in many online environments like Discord since 2020. Using languages like HTML and Node.js, 
-      I've tried out many projects... You can contact me directly via WhatsApp.<br><br>
+      I've been involved in many online environments like Discord since 2020...<br><br>
       ~Katreos
     </div>
 
@@ -218,26 +235,11 @@
                   box-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5); 
                   border: 1px solid #ffffff;">
     </div>
-
-    <!-- ========== PLAYLIST KISMI ========== -->
-    <div class="music-player">
-      <div class="now-playing" id="nowPlaying">Şarkı yükleniyor...</div>
-      
-      <div class="controls">
-        <div class="control-btn" id="prevBtn"><i class="fas fa-step-backward"></i></div>
-        <div class="control-btn" id="playPauseBtn"><i class="fas fa-play"></i></div>
-        <div class="control-btn" id="nextBtn"><i class="fas fa-step-forward"></i></div>
-      </div>
-
-      <div class="playlist" id="playlist"></div>
-    </div>
   </div>
 
-  <div class="social-btns" style="margin-top: 20px;">
-    <a href="https://wa.me/17423864828" class="whatsapp-btn" target="_blank">
-      <i class="fab fa-whatsapp"></i> WhatsApp Contact
-    </a>
-  </div>
+  <a href="https://wa.me/17423864828" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i> WhatsApp Contact
+  </a>
 
   <script>
     const audio = document.getElementById('bgMusic');
@@ -248,30 +250,16 @@
     const playlistEl = document.getElementById('playlist');
     const soundNotice = document.getElementById('soundNotice');
 
-   // ============== PLAYLIST TANIMLA (BURAYI TAM DEĞİŞTİR) ==============
-let playlist = [
-  {
-    title: "Avangard",
-    src: "./avangard.mp3"
-  },
-  {
-    title: "Beleza",
-    src: "./beleza.mp3"
-  },
-  {
-    title: "Brodyaga",
-    src: "./brodyaga.mp3"
-  },
-  {
-    title: "Montagem",
-    src: "./montagem.mp3"
-  }
-];
+    let playlist = [
+      { title: "Avangard", src: "./avangard.mp3" },
+      { title: "Beleza", src: "./beleza.mp3" },
+      { title: "Brodyaga", src: "./brodyaga.mp3" },
+      { title: "Montagem", src: "./montagem.mp3" }
+    ];
 
     let currentTrack = 0;
     let isPlaying = false;
 
-    // Playlist'i ekrana yazdır
     function renderPlaylist() {
       playlistEl.innerHTML = '';
       playlist.forEach((song, index) => {
@@ -286,7 +274,6 @@ let playlist = [
       });
     }
 
-    // Şarkı yükle ve çal
     function loadAndPlayTrack() {
       audio.src = playlist[currentTrack].src;
       nowPlaying.textContent = `Şimdi Çalıyor: ${playlist[currentTrack].title}`;
@@ -295,12 +282,9 @@ let playlist = [
       audio.play().then(() => {
         isPlaying = true;
         playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
-      }).catch(e => {
-        console.log("Oynatma hatası:", e);
-      });
+      }).catch(() => {});
     }
 
-    // Play/Pause
     function togglePlay() {
       if (isPlaying) {
         audio.pause();
@@ -312,47 +296,43 @@ let playlist = [
       isPlaying = !isPlaying;
     }
 
-    // Sonraki şarkı
     function nextTrack() {
       currentTrack = (currentTrack + 1) % playlist.length;
       loadAndPlayTrack();
     }
 
-    // Önceki şarkı
     function prevTrack() {
       currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
       loadAndPlayTrack();
     }
 
-    // Buton olayları
-    playPauseBtn.addEventListener('click', togglePlay);
-    nextBtn.addEventListener('click', nextTrack);
-    prevBtn.addEventListener('click', prevTrack);
-
-    // Şarkı bitince otomatik sonraki şarkıya geç
     audio.addEventListener('ended', nextTrack);
 
-    // Sayfa yüklendiğinde ilk şarkıyı hazırla
+    // Hata yakalama
+    audio.addEventListener('error', () => {
+      nowPlaying.textContent = "❌ Dosya bulunamadı";
+      nowPlaying.style.color = "#ff4444";
+    });
+
     window.onload = () => {
       renderPlaylist();
       audio.src = playlist[0].src;
       nowPlaying.textContent = `Şimdi Çalıyor: ${playlist[0].title}`;
 
-      // Tıklayınca sesi aç
       let clicked = false;
       document.body.addEventListener('click', () => {
         if (clicked) return;
         clicked = true;
         soundNotice.classList.add('hidden');
-        
-        // İlk tıklama ile müziği başlat
-        if (!isPlaying) {
-          loadAndPlayTrack();
-        }
+        if (!isPlaying) loadAndPlayTrack();
       }, { once: true });
     };
 
-    // Particles.js (mevcut ayarların aynı)
+    playPauseBtn.addEventListener('click', togglePlay);
+    nextBtn.addEventListener('click', nextTrack);
+    prevBtn.addEventListener('click', prevTrack);
+
+    // Particles
     particlesJS('particles-js', {
       "particles": {
         "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
@@ -365,14 +345,8 @@ let playlist = [
       },
       "interactivity": {
         "detect_on": "canvas",
-        "events": { 
-          "onhover": { "enable": true, "mode": "grab" }, 
-          "onclick": { "enable": true, "mode": "push" } 
-        },
-        "modes": { 
-          "grab": { "distance": 150, "line_linked": { "opacity": 0.5 } }, 
-          "push": { "particles_nb": 2 } 
-        }
+        "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
+        "modes": { "grab": { "distance": 150, "line_linked": { "opacity": 0.5 } }, "push": { "particles_nb": 2 } }
       },
       "retina_detect": true
     });
