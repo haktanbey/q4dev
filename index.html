@@ -28,9 +28,32 @@
       z-index: 1;
     }
 
+    /* Neon Kırmızı Çerçeve */
+    .neon-border {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 6;
+      box-shadow: 
+        0 0 15px #ff0000,
+        0 0 30px #ff0000,
+        inset 0 0 15px #ff0000,
+        inset 0 0 30px #ff0000;
+      border: 2px solid #ff0000;
+      animation: neon-flicker 3s infinite alternate;
+    }
+
+    @keyframes neon-flicker {
+      0%, 100% { opacity: 0.85; }
+      50% { opacity: 1; }
+    }
+
     .center-content {
       position: absolute;
-      top: 50%;
+      top: 48%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -43,9 +66,9 @@
     h1 {
       font-family: 'Orbitron', sans-serif;
       font-size: clamp(2.4em, 8vw, 3.8em);
-      letter-spacing: 0.3em;
+      letter-spacing: 0.25em;
       color: #ffffff;
-      text-shadow: 0 0 25px #ffffff, 0 0 50px #ffffff;
+      text-shadow: 0 0 25px #ffffff, 0 0 50px #00ffcc;
       animation: glow 3s infinite alternate;
       margin-bottom: 15px;
     }
@@ -55,65 +78,64 @@
       line-height: 1.65;
       color: #cccccc;
       text-shadow: 0 0 6px rgba(255,255,255,0.25);
-      margin-bottom: 30px;
+      margin-bottom: 25px;
     }
 
     .q4-tag {
       position: fixed;
-      top: 15px;
-      right: 20px;
+      top: 18px;
+      right: 25px;
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(1.7em, 5.5vw, 2.3em);
-      color: #ffffff;
-      text-shadow: 0 0 15px #ffffff;
-      z-index: 5;
-      letter-spacing: 0.15em;
-      animation: pulse 4s infinite;
+      font-size: clamp(1.8em, 5.5vw, 2.4em);
+      color: #ff0000;
+      text-shadow: 0 0 20px #ff0000;
+      z-index: 7;
+      letter-spacing: 0.2em;
     }
 
-    /* ========== SOL ÜST MÜZİK PLAYER (İstediğin Gibi) ========== */
+    /* Müzik Player - Gif'in Altında */
     .music-player {
-      position: fixed;
-      top: 25px;
-      left: 25px;
-      width: 280px;
+      position: absolute;
+      top: 72%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       background: rgba(10, 10, 10, 0.95);
-      border: 1px solid #00ffcc33;
+      border: 1px solid #00ffcc44;
       border-radius: 12px;
-      padding: 16px;
+      padding: 18px 22px;
+      width: 340px;
+      max-width: 92%;
       z-index: 4;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 0 25px rgba(0, 255, 200, 0.2),
-                  inset 0 0 15px rgba(0, 255, 200, 0.1);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 30px rgba(0, 255, 200, 0.25);
     }
 
     .now-playing {
-      font-size: 0.98em;
+      font-size: 1.05em;
       color: #00ffcc;
-      text-shadow: 0 0 8px #00ffcc;
-      margin-bottom: 12px;
+      text-shadow: 0 0 10px #00ffcc;
+      margin-bottom: 14px;
       text-align: center;
-      font-weight: bold;
     }
 
     .controls {
       display: flex;
       justify-content: center;
-      gap: 15px;
-      margin-bottom: 15px;
+      gap: 18px;
+      margin: 12px 0 16px 0;
     }
 
     .control-btn {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid #00ffcc44;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #00ffcc55;
       color: #00ffcc;
-      width: 42px;
-      height: 42px;
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.3em;
+      font-size: 1.4em;
       cursor: pointer;
       transition: all 0.3s;
     }
@@ -121,32 +143,31 @@
     .control-btn:hover {
       background: rgba(0, 255, 200, 0.25);
       transform: scale(1.1);
-      box-shadow: 0 0 15px rgba(0, 255, 200, 0.5);
     }
 
     .playlist {
-      max-height: 210px;
+      max-height: 220px;
       overflow-y: auto;
     }
 
-    .playlist::-webkit-scrollbar { width: 4px; }
+    .playlist::-webkit-scrollbar { width: 5px; }
     .playlist::-webkit-scrollbar-thumb {
       background: #00ffcc44;
       border-radius: 10px;
     }
 
     .song-item {
-      padding: 10px 12px;
-      margin: 4px 0;
-      background: rgba(255,255,255,0.05);
-      border-radius: 6px;
+      padding: 10px 13px;
+      margin: 5px 0;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 0.93em;
+      font-size: 0.95em;
     }
 
     .song-item:hover, .song-item.playing {
-      background: rgba(0, 255, 200, 0.15);
+      background: rgba(0, 255, 200, 0.18);
       color: #00ffcc;
     }
 
@@ -155,15 +176,15 @@
       bottom: 25px;
       left: 50%;
       transform: translateX(-50%);
-      z-index: 3;
+      z-index: 5;
       background: #25D366;
       color: white;
-      padding: 13px 28px;
+      padding: 13px 30px;
       border-radius: 50px;
-      font-size: clamp(1.05em, 4vw, 1.25em);
+      font-size: 1.1em;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 0 30px rgba(37,213,102,0.8);
+      box-shadow: 0 0 30px rgba(37,213,102,0.9);
       display: flex;
       align-items: center;
       gap: 10px;
@@ -172,25 +193,21 @@
 
     .sound-notice {
       position: fixed;
-      top: 100px;
+      top: 70px;
       left: 50%;
       transform: translateX(-50%);
-      background: rgba(0,0,0,0.8);
+      background: rgba(0,0,0,0.85);
       color: #fff;
-      padding: 10px 20px;
+      padding: 10px 22px;
       border-radius: 8px;
       z-index: 10;
     }
 
-    @keyframes glow { from { text-shadow: 0 0 20px #fff, 0 0 40px #fff; } to { text-shadow: 0 0 50px #fff, 0 0 80px #fff; } }
-    @keyframes pulse { 0%, 100% { opacity: 0.9; } 50% { opacity: 1; transform: scale(1.04); } }
+    @keyframes glow { from { text-shadow: 0 0 20px #fff, 0 0 45px #00ffcc; } to { text-shadow: 0 0 50px #fff, 0 0 80px #00ffcc; } }
 
     @media (max-width: 768px) {
-      .music-player {
-        top: 20px;
-        left: 20px;
-        width: 260px;
-      }
+      .music-player { top: 75%; width: 92%; }
+      .center-content { top: 45%; }
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -199,12 +216,15 @@
 <body>
   <div id="particles-js"></div>
 
+  <!-- Neon Kırmızı Çerçeve -->
+  <div class="neon-border"></div>
+
   <audio id="bgMusic" preload="metadata"></audio>
 
   <div class="q4-tag">KATREOS</div>
   <div class="sound-notice" id="soundNotice">Tıkla ve müziği aç!</div>
 
-  <!-- SOL ÜST MÜZİK PLAYER -->
+  <!-- MERKEZDE - GIF ALTINDA MÜZİK PLAYER -->
   <div class="music-player">
     <div class="now-playing" id="nowPlaying">Şimdi Çalıyor: Avangard</div>
     
@@ -226,11 +246,11 @@
       ~Katreos
     </div>
 
-    <div style="text-align: center; margin: 30px 0;">
+    <div style="text-align: center; margin: 25px 0 20px 0;">
       <img src="gif.gif" alt="Katreos" 
            style="max-width: 280px; width: 80%; height: auto; border-radius: 12px; 
-                  box-shadow: 0 0 15px rgba(255,255,255,0.9), 0 0 40px rgba(0,255,200,0.4); 
-                  border: 1px solid #00ffcc;">
+                  box-shadow: 0 0 20px rgba(0,255,200,0.6), 0 0 40px rgba(255,255,255,0.4); 
+                  border: 2px solid #00ffcc;">
     </div>
   </div>
 
@@ -263,10 +283,7 @@
         const item = document.createElement('div');
         item.className = `song-item ${index === currentTrack ? 'playing' : ''}`;
         item.innerHTML = `${index + 1}. ${song.title}`;
-        item.onclick = () => {
-          currentTrack = index;
-          loadAndPlayTrack();
-        };
+        item.onclick = () => { currentTrack = index; loadAndPlayTrack(); };
         playlistEl.appendChild(item);
       });
     }
@@ -275,7 +292,6 @@
       audio.src = playlist[currentTrack].src;
       nowPlaying.textContent = `Şimdi Çalıyor: ${playlist[currentTrack].title}`;
       renderPlaylist();
-      
       audio.play().then(() => {
         isPlaying = true;
         playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
@@ -304,10 +320,6 @@
     }
 
     audio.addEventListener('ended', nextTrack);
-    audio.addEventListener('error', () => {
-      nowPlaying.textContent = "❌ Dosya yüklenemedi";
-      nowPlaying.style.color = "#ff6666";
-    });
 
     window.onload = () => {
       renderPlaylist();
@@ -329,18 +341,16 @@
 
     particlesJS('particles-js', {
       "particles": {
-        "number": { "value": 35, "density": { "enable": true, "value_area": 800 } },
+        "number": { "value": 40 },
         "color": { "value": "#00ffcc" },
         "shape": { "type": "circle" },
-        "opacity": { "value": 0.35, "random": true },
+        "opacity": { "value": 0.4, "random": true },
         "size": { "value": 2.5, "random": true },
-        "line_linked": { "enable": true, "distance": 130, "color": "#00ffcc", "opacity": 0.25, "width": 0.7 },
-        "move": { "enable": true, "speed": 0.9, "direction": "none", "random": true }
+        "line_linked": { "enable": true, "distance": 140, "color": "#00ffcc", "opacity": 0.25, "width": 0.8 },
+        "move": { "enable": true, "speed": 1, "random": true }
       },
       "interactivity": {
-        "detect_on": "canvas",
-        "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
-        "modes": { "grab": { "distance": 160, "line_linked": { "opacity": 0.6 } }, "push": { "particles_nb": 3 } }
+        "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } }
       },
       "retina_detect": true
     });
