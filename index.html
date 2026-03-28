@@ -41,17 +41,17 @@
 
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(2.4em, 8vw, 3.7em);
-      letter-spacing: 0.3em;
+      font-size: clamp(2.5em, 8.5vw, 3.8em);
+      letter-spacing: 0.32em;
       color: #ffffff;
-      text-shadow: 0 0 30px #00ffcc, 0 0 60px #00ffcc;
+      text-shadow: 0 0 25px #ff0033, 0 0 55px #ff0033;
       margin-bottom: 12px;
     }
 
     .bio {
       font-size: clamp(0.92em, 3.6vw, 1.1em);
       line-height: 1.7;
-      color: #bbbbbb;
+      color: #cccccc;
       margin-bottom: 30px;
     }
 
@@ -60,40 +60,40 @@
       top: 22px;
       right: 28px;
       font-family: 'Orbitron', sans-serif;
-      font-size: clamp(1.85em, 6vw, 2.4em);
-      color: #00ffcc;
-      text-shadow: 0 0 20px #00ffcc;
+      font-size: clamp(1.9em, 6vw, 2.5em);
+      color: #ff0033;
+      text-shadow: 0 0 20px #ff0033;
       z-index: 6;
     }
 
-    /* SOL PANEL - PLAYLIST */
+    /* SOL PANEL - PLAYLIST (Kırmızı) */
     .left-panel {
       position: fixed;
       top: 50%;
       left: 35px;
       transform: translateY(-50%);
       width: 290px;
-      background: rgba(10, 10, 10, 0.96);
-      border: 2px solid #ff0044;
+      background: rgba(10, 10, 10, 0.97);
+      border: 2px solid #ff0033;
       border-radius: 14px;
       padding: 20px 16px;
       z-index: 4;
-      box-shadow: 0 0 30px rgba(255, 0, 68, 0.45);
+      box-shadow: 0 0 35px rgba(255, 0, 51, 0.5);
     }
 
-    /* SAĞ PANEL - DISCORD STATUS */
+    /* SAĞ PANEL - DISCORD (Kırmızı tonlu) */
     .right-panel {
       position: fixed;
       top: 50%;
       right: 35px;
       transform: translateY(-50%);
       width: 290px;
-      background: rgba(10, 10, 10, 0.96);
-      border: 2px solid #00ffcc;
+      background: rgba(10, 10, 10, 0.97);
+      border: 2px solid #ff0033;
       border-radius: 14px;
       padding: 18px;
       z-index: 4;
-      box-shadow: 0 0 30px rgba(0, 255, 200, 0.4);
+      box-shadow: 0 0 35px rgba(255, 0, 51, 0.4);
       min-height: 340px;
     }
 
@@ -113,16 +113,16 @@
       width: 340px;
       max-width: 92%;
       background: rgba(8, 8, 8, 0.97);
-      border: 2px solid #00ffcc;
+      border: 2px solid #ff0033;
       border-radius: 12px;
       padding: 18px 20px;
       z-index: 5;
-      box-shadow: 0 0 35px rgba(0, 255, 200, 0.5);
+      box-shadow: 0 0 40px rgba(255, 0, 51, 0.55);
     }
 
     .now-playing {
-      color: #00ffcc;
-      text-shadow: 0 0 12px #00ffcc;
+      color: #ff0033;
+      text-shadow: 0 0 12px #ff0033;
       text-align: center;
       margin-bottom: 14px;
       font-size: 1.05em;
@@ -136,9 +136,9 @@
     }
 
     .control-btn {
-      background: rgba(0, 255, 200, 0.12);
-      border: 2px solid #00ffcc;
-      color: #00ffcc;
+      background: rgba(255, 0, 51, 0.12);
+      border: 2px solid #ff0033;
+      color: #ff0033;
       width: 48px;
       height: 48px;
       border-radius: 50%;
@@ -151,7 +151,7 @@
     }
 
     .control-btn:hover {
-      background: #00ffcc;
+      background: #ff0033;
       color: #000;
       transform: scale(1.1);
     }
@@ -172,8 +172,8 @@
     }
 
     .song-item:hover, .song-item.playing {
-      background: rgba(0, 255, 200, 0.22);
-      color: #00ffcc;
+      background: rgba(255, 0, 51, 0.25);
+      color: #ff0033;
     }
 
     .whatsapp-btn {
@@ -213,7 +213,7 @@
     <div class="playlist" id="playlist"></div>
   </div>
 
-  <!-- SAĞ - DISCORD STATUS (Lanyard) -->
+  <!-- SAĞ - DISCORD -->
   <div class="right-panel">
     <iframe class="discord-widget" 
             src="https://lanyard.cnrad.dev/api/1477281205056700428?theme=dark&bg=0a0a0a&borderRadius=12px" 
@@ -224,7 +224,7 @@
   <div class="center-content">
     <img src="gif.gif" alt="Katreos" 
          style="max-width: 270px; width: 78%; border-radius: 12px; 
-                box-shadow: 0 0 35px rgba(0,255,200,0.7); border: 2px solid #00ffcc; margin-bottom: 25px;">
+                box-shadow: 0 0 35px rgba(255,0,51,0.7); border: 2px solid #ff0033; margin-bottom: 25px;">
 
     <h1>WHO IS KATREOS</h1>
     <div class="bio">
@@ -323,13 +323,13 @@
 
     particlesJS('particles-js', {
       "particles": {
-        "number": { "value": 80 },
-        "color": { "value": "#ffffff" },
+        "number": { "value": 70 },
+        "color": { "value": "#ff0033" },
         "shape": { "type": "circle" },
-        "opacity": { "value": 0.6, "random": true },
+        "opacity": { "value": 0.55, "random": true },
         "size": { "value": 4, "random": true },
-        "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.25, "width": 1 },
-        "move": { "enable": true, "speed": 2, "random": true }
+        "line_linked": { "enable": true, "distance": 140, "color": "#ff0033", "opacity": 0.3, "width": 1 },
+        "move": { "enable": true, "speed": 1.8, "random": true }
       },
       "interactivity": {
         "events": { "onhover": { "enable": true, "mode": "grab" } }
