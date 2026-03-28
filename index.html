@@ -1,254 +1,383 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Cyber Katreos</title></title>
-    <link rel="icon" href="/ikon.png" type="image/png">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap');
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Cyber Katreos</title>
+  <link rel="icon" href="/ikon.png" type="image/png">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap');
 
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-        body, html {
-            height: 100%;
-            background: #000;
-            position: relative;
-            overflow: hidden;
-            color: #ffffff;
-            font-family: 'Share Tech Mono', monospace;
-            cursor: pointer;
-        }
+    body, html {
+      height: 100%;
+      background: #000;
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+      font-family: 'Share Tech Mono', monospace;
+      cursor: pointer;
+    }
 
-        #particles-js {
-            width: 100%;
-            height: 100%;
-            background: #000;
-            position: fixed;
-            top: 0; left: 0;
-            z-index: 1;
-        }
+    #particles-js {
+      width: 100%;
+      height: 100%;
+      background: #000;
+      position: fixed;
+      top: 0; left: 0;
+      z-index: 1;
+    }
 
-        .center-content {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            z-index: 2;
-            width: 92%;
-            max-width: 700px;
-            max-height: 70vh;
-            overflow-y: auto;
-            padding: 15px;
-            scrollbar-width: thin;
-        }
+    .center-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      z-index: 2;
+      width: 92%;
+      max-width: 700px;
+      max-height: 70vh;
+      overflow-y: auto;
+      padding: 15px;
+    }
 
-        .center-content::-webkit-scrollbar {
-            width: 6px;
-        }
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(2.2em, 7vw, 3.5em);
+      letter-spacing: 0.25em;
+      color: #ffffff;
+      text-shadow: 0 0 20px #ffffff, 0 0 40px #ffffff;
+      animation: glow 3s infinite alternate;
+      margin-bottom: 15px;
+    }
 
-        .center-content::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 10px;
-        }
+    .bio {
+      font-size: clamp(0.95em, 3.8vw, 1.2em);
+      line-height: 1.6;
+      color: #ffffff;
+      text-shadow: 0 0 6px rgba(255,255,255,0.3);
+      margin-bottom: 30px;
+    }
 
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(2.2em, 7vw, 3.5em);
-            letter-spacing: 0.25em;
-            color: #ffffff;
-            text-shadow: 0 0 20px #ffffff, 0 0 40px #ffffff;
-            animation: glow 3s infinite alternate;
-            margin-bottom: 15px;
-        }
+    .q4-tag {
+      position: fixed;
+      top: 10px;
+      right: 15px;
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(1.6em, 5vw, 2.2em);
+      color: #ffffff;
+      text-shadow: 0 0 15px #ffffff;
+      z-index: 3;
+      letter-spacing: 0.1em;
+      animation: pulse 4s infinite;
+    }
 
-        .bio {
-            font-size: clamp(0.95em, 3.8vw, 1.2em);
-            line-height: 1.6;
-            color: #ffffff;
-            text-shadow: 0 0 6px rgba(255,255,255,0.3);
-            margin-bottom: 30px;
-        }
+    .whatsapp-btn {
+      position: fixed;
+      bottom: 15px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      background: #25D366;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      font-size: clamp(1em, 4vw, 1.2em);
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(37,213,102,0.7);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.3s;
+      border: 2px solid #ffffff;
+      max-width: 90%;
+    }
 
-        .q4-tag {
-            position: fixed;
-            top: 10px;
-            right: 15px;
-            font-family: 'Orbitron', sans-serif;
-            font-size: clamp(1.6em, 5vw, 2.2em);
-            color: #ffffff;
-            text-shadow: 0 0 15px #ffffff;
-            z-index: 3;
-            letter-spacing: 0.1em;
-            animation: pulse 4s infinite;
-        }
+    /* ========== YENİ PLAYLIST STİLLERİ ========== */
+    .music-player {
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid #ffffff33;
+      border-radius: 12px;
+      padding: 15px;
+      margin: 25px auto;
+      max-width: 420px;
+      backdrop-filter: blur(10px);
+    }
 
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 3;
-            background: #25D366;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 50px;
-            font-size: clamp(1em, 4vw, 1.2em);
-            font-weight: bold;
-            text-decoration: none;
-            box-shadow: 0 0 25px rgba(37,213,102,0.7);
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-            border: 2px solid #ffffff;
-            max-width: 90%;
-        }
+    .now-playing {
+      font-size: 1.05em;
+      margin-bottom: 12px;
+      color: #00ffcc;
+      text-shadow: 0 0 10px #00ffcc;
+    }
 
-        .whatsapp-btn:hover {
-            transform: translateX(-50%) scale(1.05);
-            box-shadow: 0 0 45px rgba(37,213,102,1);
-        }
+    .playlist {
+      max-height: 220px;
+      overflow-y: auto;
+      margin: 15px 0;
+    }
 
-        .whatsapp-btn i {
-            font-size: 1.5em;
-        }
+    .playlist::-webkit-scrollbar {
+      width: 5px;
+    }
 
-        .sound-notice {
-            position: fixed;
-            top: 50px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.7);
-            color: #fff;
-            padding: 10px 20px;
-            border-radius: 8px;
-            font-size: clamp(0.9em, 3.5vw, 1em);
-            z-index: 10;
-            pointer-events: none;
-            opacity: 1;
-            transition: opacity 1s;
-            text-align: center;
-            max-width: 90%;
-        }
+    .playlist::-webkit-scrollbar-thumb {
+      background: #444;
+      border-radius: 10px;
+    }
 
-        .sound-notice.hidden {
-            opacity: 0;
-        }
+    .song-item {
+      padding: 10px 12px;
+      margin: 4px 0;
+      background: rgba(255,255,255,0.05);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: left;
+      font-size: 0.95em;
+    }
 
-        @keyframes glow {
-            from { text-shadow: 0 0 15px #ffffff, 0 0 30px #ffffff; }
-            to   { text-shadow: 0 0 40px #ffffff, 0 0 70px #ffffff; }
-        }
+    .song-item:hover, .song-item.playing {
+      background: rgba(0, 255, 200, 0.15);
+      color: #00ffcc;
+    }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 0.9; transform: scale(1); }
-            50%      { opacity: 1; transform: scale(1.04); }
-        }
+    .controls {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 10px;
+    }
 
-        audio { display: none; }
+    .control-btn {
+      background: rgba(255,255,255,0.1);
+      border: 1px solid #ffffff44;
+      color: white;
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4em;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
 
-        @media (max-width: 600px) {
-            .center-content {
-                max-height: 65vh;
-                padding: 10px;
-            }
-            h1 {
-                margin-bottom: 10px;
-            }
-            .bio {
-                margin-bottom: 20px;
-            }
-            .whatsapp-btn {
-                bottom: 10px;
-                padding: 10px 20px;
-            }
-            .q4-tag {
-                top: 8px;
-                right: 10px;
-            }
-            .sound-notice {
-                top: 45px;
-                font-size: 0.95em;
-                padding: 8px 16px;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
-    </head>
+    .control-btn:hover {
+      background: rgba(255,255,255,0.25);
+      transform: scale(1.1);
+    }
+
+    .sound-notice {
+      position: fixed;
+      top: 50px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(0,0,0,0.7);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: clamp(0.9em, 3.5vw, 1em);
+      z-index: 10;
+      pointer-events: none;
+      opacity: 1;
+      transition: opacity 1s;
+    }
+
+    @keyframes glow { from { text-shadow: 0 0 15px #fff, 0 0 30px #fff; } to { text-shadow: 0 0 40px #fff, 0 0 70px #fff; } }
+    @keyframes pulse { 0%, 100% { opacity: 0.9; transform: scale(1); } 50% { opacity: 1; transform: scale(1.04); } }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+</head>
 <body>
-    <div id="particles-js"></div>
+  <div id="particles-js"></div>
 
-    <audio id="bgMusic" loop true>
-        <source src="Skins (Slowed + Reverb).mp3" type="audio/mpeg">
+  <!-- Müzik Playlist -->
+  <audio id="bgMusic" preload="metadata"></audio>
 
-    </audio>
+  <div class="q4-tag">Katreos</div>
+  <div class="sound-notice" id="soundNotice">Tıkla ve müziği aç!</div>
 
-    <div class="q4-tag">Katreos</div>
+  <div class="center-content">
+    <h1>WHO IS KATREOS</h1>
+    <div class="bio">
+      My name is Katreos, I'm 17 years old and I want to become a Cybersecurity professional. 
+      I've been involved in many online environments like Discord since 2020. Using languages like HTML and Node.js, 
+      I've tried out many projects... You can contact me directly via WhatsApp.<br><br>
+      ~Katreos
+    </div>
 
-    <div class="sound-notice" id="soundNotice">Be Careful!</div>
+    <div style="text-align: center; margin: 30px 0 45px 0;">
+      <img src="gif.gif" alt="Katreos" 
+           style="max-width: 280px; width: 80%; height: auto; border-radius: 12px; 
+                  box-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5); 
+                  border: 1px solid #ffffff;">
+    </div>
 
-    <div class="center-content">
-        <h1>WHO IS KATREOS</h1>
-        <div class="bio">
-            My name is Katreos, I'm 17 years old and I want to become a Cybersecurity professional. I've been involved in many online environments like Discord since 2020. Using languages ​​like HTML and Node.js, I've tried out many projects, including simple dashboards, websites, interfaces, and login systems. Some were successful, some were unsuccessful. I continue to work on new projects. You can contact me directly via WhatsApp at the number below. 
+    <!-- ========== PLAYLIST KISMI ========== -->
+    <div class="music-player">
+      <div class="now-playing" id="nowPlaying">Şarkı yükleniyor...</div>
+      
+      <div class="controls">
+        <div class="control-btn" id="prevBtn"><i class="fas fa-step-backward"></i></div>
+        <div class="control-btn" id="playPauseBtn"><i class="fas fa-play"></i></div>
+        <div class="control-btn" id="nextBtn"><i class="fas fa-step-forward"></i></div>
+      </div>
 
-~Katreos
-        </div><div <div style="text-align: center; margin: 30px 0 45px 0;">
-    <img 
-        src="gif.gif" 
-        alt="Katreos" 
-        style="max-width: 280px; width: 80%; height: auto; border-radius: 12px; 
-               box-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.5); 
-               border: 1px solid #ffffff;"
-    >
-</div>
- </div>
-</div>
-        
- <div class="social-btns">
- <div style="display: flex; gap: 20px; justify-content: center; margin: 30px 0; flex-wrap: wrap;">
- 
-    
+      <div class="playlist" id="playlist"></div>
+    </div>
+  </div>
+
+  <div class="social-btns" style="margin-top: 20px;">
     <a href="https://wa.me/17423864828" class="whatsapp-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i> WhatsApp Contact
+      <i class="fab fa-whatsapp"></i> WhatsApp Contact
     </a>
-</div>
-</div>
-    </a>
+  </div>
 
-    <script>
-        const audio = document.getElementById('bgMusic');
-        audio.play().catch(e => console.log("Muted autoplay:", e));
+  <script>
+    const audio = document.getElementById('bgMusic');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const nowPlaying = document.getElementById('nowPlaying');
+    const playlistEl = document.getElementById('playlist');
+    const soundNotice = document.getElementById('soundNotice');
 
-        let clicked = false;
-        document.body.addEventListener('click', () => {
-            if (clicked) return;
-            clicked = true;
-            audio.muted = false;
-            audio.play().catch(e => console.log("Ses açıldı:", e));
-            document.getElementById('soundNotice').classList.add('hidden');
-        });
+    // ============== PLAYLIST TANIMLA ==============
+    let playlist = [
+      {
+        title: "MONTAGEM TOMADA (SLOWED)",
+        src: "montagem.mp3"
+      },
+      {
+        title: "FUNK DE BELEZA",
+        src: "beleza.mp3"
+      },
+      {
+        title: "AVANGARD,
+        src: "avangard.mp3"
+      },
+      {
+        title: "BRODYAGA FUNK (SLOWED)",
+        src: "brodyaga.mp3"
+      }
+      // Buraya istediğin kadar şarkı ekleyebilirsin
+      // Örnek: { title: "Şarkı Adı", src: "dosyaadı.mp3" }
+    ];
 
-        particlesJS('particles-js', {
-            "particles": {
-                "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
-                "color": { "value": "#ffffff" },
-                "shape": { "type": "circle" },
-                "opacity": { "value": 0.3, "random": true },
-                "size": { "value": 2, "random": true },
-                "line_linked": { "enable": true, "distance": 120, "color": "#ffffff", "opacity": 0.2, "width": 0.6 },
-                "move": { "enable": true, "speed": 0.8, "direction": "none", "random": true, "straight": false }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" } },
-                "modes": { "grab": { "distance": 150, "line_linked": { "opacity": 0.5 } }, "push": { "particles_nb": 2 } }
-            },
-            "retina_detect": true
-        });
-    </script>
-    </body>
+    let currentTrack = 0;
+    let isPlaying = false;
+
+    // Playlist'i ekrana yazdır
+    function renderPlaylist() {
+      playlistEl.innerHTML = '';
+      playlist.forEach((song, index) => {
+        const item = document.createElement('div');
+        item.className = `song-item ${index === currentTrack ? 'playing' : ''}`;
+        item.innerHTML = `${index + 1}. ${song.title}`;
+        item.onclick = () => {
+          currentTrack = index;
+          loadAndPlayTrack();
+        };
+        playlistEl.appendChild(item);
+      });
+    }
+
+    // Şarkı yükle ve çal
+    function loadAndPlayTrack() {
+      audio.src = playlist[currentTrack].src;
+      nowPlaying.textContent = `Şimdi Çalıyor: ${playlist[currentTrack].title}`;
+      renderPlaylist();
+      
+      audio.play().then(() => {
+        isPlaying = true;
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      }).catch(e => {
+        console.log("Oynatma hatası:", e);
+      });
+    }
+
+    // Play/Pause
+    function togglePlay() {
+      if (isPlaying) {
+        audio.pause();
+        playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+      } else {
+        audio.play();
+        playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+      }
+      isPlaying = !isPlaying;
+    }
+
+    // Sonraki şarkı
+    function nextTrack() {
+      currentTrack = (currentTrack + 1) % playlist.length;
+      loadAndPlayTrack();
+    }
+
+    // Önceki şarkı
+    function prevTrack() {
+      currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+      loadAndPlayTrack();
+    }
+
+    // Buton olayları
+    playPauseBtn.addEventListener('click', togglePlay);
+    nextBtn.addEventListener('click', nextTrack);
+    prevBtn.addEventListener('click', prevTrack);
+
+    // Şarkı bitince otomatik sonraki şarkıya geç
+    audio.addEventListener('ended', nextTrack);
+
+    // Sayfa yüklendiğinde ilk şarkıyı hazırla
+    window.onload = () => {
+      renderPlaylist();
+      audio.src = playlist[0].src;
+      nowPlaying.textContent = `Şimdi Çalıyor: ${playlist[0].title}`;
+
+      // Tıklayınca sesi aç
+      let clicked = false;
+      document.body.addEventListener('click', () => {
+        if (clicked) return;
+        clicked = true;
+        soundNotice.classList.add('hidden');
+        
+        // İlk tıklama ile müziği başlat
+        if (!isPlaying) {
+          loadAndPlayTrack();
+        }
+      }, { once: true });
+    };
+
+    // Particles.js (mevcut ayarların aynı)
+    particlesJS('particles-js', {
+      "particles": {
+        "number": { "value": 30, "density": { "enable": true, "value_area": 800 } },
+        "color": { "value": "#ffffff" },
+        "shape": { "type": "circle" },
+        "opacity": { "value": 0.3, "random": true },
+        "size": { "value": 2, "random": true },
+        "line_linked": { "enable": true, "distance": 120, "color": "#ffffff", "opacity": 0.2, "width": 0.6 },
+        "move": { "enable": true, "speed": 0.8, "direction": "none", "random": true, "straight": false }
+      },
+      "interactivity": {
+        "detect_on": "canvas",
+        "events": { 
+          "onhover": { "enable": true, "mode": "grab" }, 
+          "onclick": { "enable": true, "mode": "push" } 
+        },
+        "modes": { 
+          "grab": { "distance": 150, "line_linked": { "opacity": 0.5 } }, 
+          "push": { "particles_nb": 2 } 
+        }
+      },
+      "retina_detect": true
+    });
+  </script>
+</body>
 </html>
