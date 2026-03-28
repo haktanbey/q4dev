@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>卍 Katreos</title>
   <link rel="icon" href="/ikon.png" type="image/png">
+
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Share+Tech+Mono&display=swap');
 
@@ -81,40 +82,57 @@
       box-shadow: 0 0 35px rgba(255, 0, 51, 0.5);
     }
 
-    /* SAĞ PANEL - DISCORD (KÜÇÜLTÜLDÜ) */
+    .playlist {
+      max-height: 255px;
+      overflow-y: auto;
+    }
 
+    .song-item {
+      padding: 10px 13px;
+      margin: 5px 0;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 0.94em;
+    }
 
+    .song-item:hover, .song-item.playing {
+      background: rgba(255, 0, 51, 0.25);
+      color: #ff0033;
+    }
+
+    /* SAĞ PANEL - DISCORD */
     .right-panel {
-    position: fixed;
-    top: 50%;
-    right: 80px;           /* Kırmızı kutuya göre biraz sola çektim */
-    transform: translateY(-50%);
-    width: 320px;          /* Kırmızı kutuya daha iyi uysun diye genişlettim */
-    background: rgba(10, 10, 10, 0.97);
-    border: 2px solid #ff0033;
-    border-radius: 14px;
-    padding: 16px;
-    z-index: 4;
-    box-shadow: 0 0 35px rgba(255, 0, 51, 0.5);
-    min-height: 320px;     /* Status kısmının rahat sığması için */
-}
+      position: fixed;
+      top: 50%;
+      right: 80px;
+      transform: translateY(-50%);
+      width: 320px;
+      background: rgba(10, 10, 10, 0.97);
+      border: 2px solid #ff0033;
+      border-radius: 14px;
+      padding: 16px;
+      z-index: 4;
+      box-shadow: 0 0 35px rgba(255, 0, 51, 0.5);
+      min-height: 320px;
     }
 
     .discord-widget {
-    width: 150%;
-    height: 285px;         /* Status widget'inin tam sığması için artırdım */
-    border: none;
-    background: transparent;
-    overflow: hidden;
+      width: 150%;
+      height: 285px;
+      border: none;
+      background: transparent;
+      overflow: hidden;
     }
 
-    /* MÜZİK KONTROLLERİ (Biraz küçültüldü) */
+    /* MÜZİK KONTROLLERİ */
     .music-controls {
       position: absolute;
-      top: 70%;               /* Biraz aşağı kaydırıldı */
+      top: 70%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 310px;           /* ← Biraz küçültüldü */
+      width: 310px;
       max-width: 90%;
       background: rgba(8, 8, 8, 0.97);
       border: 2px solid #ff0033;
@@ -143,7 +161,7 @@
       background: rgba(255, 0, 51, 0.12);
       border: 2px solid #ff0033;
       color: #ff0033;
-      width: 44px;            /* ← Butonlar biraz küçültüldü */
+      width: 44px;
       height: 44px;
       border-radius: 50%;
       display: flex;
@@ -160,72 +178,48 @@
       transform: scale(1.1);
     }
 
-    .playlist {
-      max-height: 255px;
-      overflow-y: auto;
-    }
-
-    .song-item {
-      padding: 10px 13px;
-      margin: 5px 0;
-      background: rgba(255,255,255,0.06);
-      border-radius: 8px;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 0.94em;
-    }
-
-    .song-item:hover, .song-item.playing {
-      background: rgba(255, 0, 51, 0.25);
-      color: #ff0033;
-    }
-
-    .whatsapp-btn {
+    /* SOSYAL BUTONLAR */
+    .social-buttons {
       position: fixed;
       bottom: 28px;
       left: 50%;
       transform: translateX(-50%);
+      display: flex;
+      gap: 15px;
       z-index: 6;
-      background: #25D366;
+    }
+
+    .social-buttons a {
       color: white;
-      padding: 13px 32px;
+      padding: 13px 28px;
       border-radius: 50px;
       font-weight: bold;
       text-decoration: none;
-      box-shadow: 0 0 30px rgba(37,213,102,0.9);
       display: flex;
       align-items: center;
       gap: 10px;
     }
 
     .instagram-btn {
-    position: fixed;
-    bottom: 28px;
-    left: calc(50% - 170px); /* sola kaydırır */
+      background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
+      box-shadow: 0 0 30px rgba(221,42,123,0.9);
+    }
 
-    z-index: 6;
-    color: white;
-    padding: 13px 32px;
-    border-radius: 50px;
-    font-weight: bold;
-    text-decoration: none;
+    .whatsapp-btn {
+      background: #25D366;
+      box-shadow: 0 0 30px rgba(37,213,102,0.9);
+    }
 
-    background: linear-gradient(45deg, #f58529, #dd2a7b, #8134af, #515bd4);
-
-    box-shadow: 0 0 30px rgba(221,42,123,0.9);
-
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-      
     @media (max-width: 1100px) {
       .left-panel, .right-panel { display: none; }
     }
+
   </style>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 </head>
+
 <body>
   <div id="particles-js"></div>
 
@@ -238,7 +232,7 @@
     <div class="playlist" id="playlist"></div>
   </div>
 
-  <!-- SAĞ - DISCORD (Küçültüldü) -->
+  <!-- SAĞ - DISCORD -->
   <div class="right-panel">
     <iframe class="discord-widget" 
             src="https://lanyard.cnrad.dev/api/1477281205056700428?theme=dark&bg=0a0a0a&borderRadius=12px" 
@@ -247,21 +241,15 @@
 
   <!-- ORTA İÇERİK -->
   <div class="center-content">
-  <img src="standard (4).gif" alt="Katreos"
-       style="width: 100%; height: auto; border-radius: 12px;
-       box-shadow: 0 0 35px rgba(255,0,51,0.7); border: 2px solid #ff0033; margin-bottom: 25px;">
-
-  <h1>#KATREOS</h1>
-
-  <div class="bio">
-    💻SOCİAL MEDİA EXPERT💻
+    <img src="standard (4).gif" style="width: 100%; height: auto; border-radius: 12px;
+         box-shadow: 0 0 35px rgba(255,0,51,0.7); border: 2px solid #ff0033; margin-bottom: 25px;">
+    <h1>#KATREOS</h1>
+    <div class="bio">💻SOCİAL MEDİA EXPERT💻</div>
   </div>
-</div>
 
-  <!-- MÜZİK KONTROLLERİ (Küçültüldü) -->
+  <!-- MÜZİK KONTROLLERİ -->
   <div class="music-controls">
-    <div class="now-playing" id="nowPlaying">Now Listening:Avangard</div>
-    
+    <div class="now-playing" id="nowPlaying">Now Listening: Avangard</div>
     <div class="controls">
       <div class="control-btn" id="prevBtn"><i class="fas fa-step-backward"></i></div>
       <div class="control-btn" id="playPauseBtn"><i class="fas fa-pause"></i></div>
@@ -269,12 +257,19 @@
     </div>
   </div>
 
-  <a href="https://wa.me/17423864828" class="whatsapp-btn" target="_blank">
-    <i class="fab fa-whatsapp"></i> WhatsApp Contact
-  </a>
+  <!-- SOSYAL BUTONLAR -->
+  <div class="social-buttons">
+    <a href="https://instagram.com/k4treos" target="_blank" class="instagram-btn">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+
+    <a href="https://wa.me/17423864828" target="_blank" class="whatsapp-btn">
+      <i class="fab fa-whatsapp"></i> WhatsApp
+    </a>
+  </div>
 
   <script>
-    // ... (Müzik scripti aynı kalıyor, sadece son kısım)
+    // 🎵 MÜZİK SCRIPTİ
     const audio = document.getElementById('bgMusic');
     const playPauseBtn = document.getElementById('playPauseBtn');
     const prevBtn = document.getElementById('prevBtn');
@@ -347,15 +342,16 @@
     nextBtn.addEventListener('click', nextTrack);
     prevBtn.addEventListener('click', prevTrack);
 
+    // 🎇 PARTICLES
     particlesJS('particles-js', {
-      "particles": {
-        "number": { "value": 70 },
-        "color": { "value": "#ff0033" },
-        "shape": { "type": "circle" },
-        "opacity": { "value": 0.55, "random": true },
-        "size": { "value": 4, "random": true },
-        "line_linked": { "enable": true, "distance": 140, "color": "#ff0033", "opacity": 0.3, "width": 1 },
-        "move": { "enable": true, "speed": 1.8, "random": true }
+      particles: {
+        number: { value: 70 },
+        color: { value: "#ff0033" },
+        shape: { type: "circle" },
+        opacity: { value: 0.55, random: true },
+        size: { value: 4, random: true },
+        line_linked: { enable: true, distance: 140, color: "#ff0033", opacity: 0.3, width: 1 },
+        move: { enable: true, speed: 1.8, random: true }
       }
     });
   </script>
