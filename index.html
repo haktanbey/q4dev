@@ -30,7 +30,7 @@
 
     .center-content {
       position: absolute;
-      top: 45%;
+      top: 44%;
       left: 50%;
       transform: translate(-50%, -50%);
       text-align: center;
@@ -66,7 +66,7 @@
       z-index: 6;
     }
 
-    /* SOL PANEL - PLAYLIST (Kırmızı) */
+    /* SOL PANEL - PLAYLIST */
     .left-panel {
       position: fixed;
       top: 50%;
@@ -76,76 +76,76 @@
       background: rgba(10, 10, 10, 0.97);
       border: 2px solid #ff0033;
       border-radius: 14px;
-      padding: 20px 16px;
+      padding: 18px 14px;
       z-index: 4;
       box-shadow: 0 0 35px rgba(255, 0, 51, 0.5);
     }
 
-    /* SAĞ PANEL - DISCORD (Kırmızı tonlu) */
+    /* SAĞ PANEL - DISCORD (KÜÇÜLTÜLDÜ) */
     .right-panel {
       position: fixed;
       top: 50%;
       right: 35px;
       transform: translateY(-50%);
-      width: 290px;
+      width: 260px;           /* ← Küçültüldü */
       background: rgba(10, 10, 10, 0.97);
       border: 2px solid #ff0033;
       border-radius: 14px;
-      padding: 18px;
+      padding: 14px;
       z-index: 4;
-      box-shadow: 0 0 35px rgba(255, 0, 51, 0.4);
-      min-height: 340px;
+      box-shadow: 0 0 30px rgba(255, 0, 51, 0.45);
+      min-height: 280px;      /* ← Daha kısa yapıldı */
     }
 
     .discord-widget {
       width: 100%;
-      height: 300px;
+      height: 255px;          /* ← İçerik yüksekliği küçültüldü */
       border: none;
       background: transparent;
     }
 
-    /* Müzik Kontrolleri */
+    /* MÜZİK KONTROLLERİ (Biraz küçültüldü) */
     .music-controls {
       position: absolute;
-      top: 68%;
+      top: 70%;               /* Biraz aşağı kaydırıldı */
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 340px;
-      max-width: 92%;
+      width: 310px;           /* ← Biraz küçültüldü */
+      max-width: 90%;
       background: rgba(8, 8, 8, 0.97);
       border: 2px solid #ff0033;
       border-radius: 12px;
-      padding: 18px 20px;
+      padding: 15px 18px;
       z-index: 5;
-      box-shadow: 0 0 40px rgba(255, 0, 51, 0.55);
+      box-shadow: 0 0 35px rgba(255, 0, 51, 0.5);
     }
 
     .now-playing {
       color: #ff0033;
-      text-shadow: 0 0 12px #ff0033;
+      text-shadow: 0 0 10px #ff0033;
       text-align: center;
-      margin-bottom: 14px;
-      font-size: 1.05em;
+      margin-bottom: 12px;
+      font-size: 1.02em;
     }
 
     .controls {
       display: flex;
       justify-content: center;
-      gap: 20px;
-      margin-bottom: 16px;
+      gap: 18px;
+      margin-bottom: 12px;
     }
 
     .control-btn {
       background: rgba(255, 0, 51, 0.12);
       border: 2px solid #ff0033;
       color: #ff0033;
-      width: 48px;
-      height: 48px;
+      width: 44px;            /* ← Butonlar biraz küçültüldü */
+      height: 44px;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.45em;
+      font-size: 1.35em;
       cursor: pointer;
       transition: all 0.3s;
     }
@@ -157,18 +157,18 @@
     }
 
     .playlist {
-      max-height: 260px;
+      max-height: 255px;
       overflow-y: auto;
     }
 
     .song-item {
-      padding: 11px 14px;
-      margin: 6px 0;
+      padding: 10px 13px;
+      margin: 5px 0;
       background: rgba(255,255,255,0.06);
       border-radius: 8px;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 0.95em;
+      font-size: 0.94em;
     }
 
     .song-item:hover, .song-item.playing {
@@ -178,13 +178,13 @@
 
     .whatsapp-btn {
       position: fixed;
-      bottom: 30px;
+      bottom: 28px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 6;
       background: #25D366;
       color: white;
-      padding: 14px 34px;
+      padding: 13px 32px;
       border-radius: 50px;
       font-weight: bold;
       text-decoration: none;
@@ -213,7 +213,7 @@
     <div class="playlist" id="playlist"></div>
   </div>
 
-  <!-- SAĞ - DISCORD -->
+  <!-- SAĞ - DISCORD (Küçültüldü) -->
   <div class="right-panel">
     <iframe class="discord-widget" 
             src="https://lanyard.cnrad.dev/api/1477281205056700428?theme=dark&bg=0a0a0a&borderRadius=12px" 
@@ -234,7 +234,7 @@
     </div>
   </div>
 
-  <!-- MÜZİK KONTROLLERİ -->
+  <!-- MÜZİK KONTROLLERİ (Küçültüldü) -->
   <div class="music-controls">
     <div class="now-playing" id="nowPlaying">Şimdi Çalıyor: Avangard</div>
     
@@ -250,6 +250,7 @@
   </a>
 
   <script>
+    // ... (Müzik scripti aynı kalıyor, sadece son kısım)
     const audio = document.getElementById('bgMusic');
     const playPauseBtn = document.getElementById('playPauseBtn');
     const prevBtn = document.getElementById('prevBtn');
@@ -330,9 +331,6 @@
         "size": { "value": 4, "random": true },
         "line_linked": { "enable": true, "distance": 140, "color": "#ff0033", "opacity": 0.3, "width": 1 },
         "move": { "enable": true, "speed": 1.8, "random": true }
-      },
-      "interactivity": {
-        "events": { "onhover": { "enable": true, "mode": "grab" } }
       }
     });
   </script>
